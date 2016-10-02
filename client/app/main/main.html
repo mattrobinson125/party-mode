@@ -1,18 +1,8 @@
 <header class="hero-unit" id="banner">
   <div class="container">
-    <h1>Party Mode</h1>
-    <p class="lead">Make the music at your next party better with Party Mode</p>
-    <button class="btn btn-success" ng-click="$ctrl.login()">Create Party</button>
+    <h1 id="title">Party Mode</h1>
+    <div class="lead">Easily create collaborative playlists for your parties.</div>
+    <div class="lead">Powered by <img id="spotifyLogo" src="/assets/images/Spotify_Logo_RGB_White.png"></div>
+    <button class="btn btn-success btn-lg" ng-click="$ctrl.login()">Get Started</button>
   </div>
 </header>
-
-<div class="container">
-  <div class="row">
-    <div class="col-lg-12">
-      <h1 class="page-header">Features:</h1>
-      <ul class="nav nav-tabs nav-stacked col-md-4 col-lg-4 col-sm-6" ng-repeat="thing in $ctrl.awesomeThings">
-        <li><a href="#" uib-tooltip="{{thing.info}}">{{thing.name}}</a></li>
-      </ul>
-    </div>
-  </div>
-</div>

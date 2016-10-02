@@ -8,7 +8,17 @@ import routes from './partyCreate.routes';
 export class PartyCreateComponent {
   /*@ngInject*/
   constructor() {
-    this.message = 'Hello';
+    this.formData = {}
+  }
+  processForm(){
+    var form = this.formData;
+    if(!form.name || !form.visibility || !form.zip){
+      console.log("Not complete!");
+    } else if(form.zip.length != 5){
+      console.log("Zip code incorrect!");
+    } else{
+
+    }
   }
 }
 
