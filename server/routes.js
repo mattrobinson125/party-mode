@@ -85,21 +85,12 @@ export default function(app) {
       request.post(authOptions, function(error, response, body) {
         if (!error && response.statusCode === 200) {
           var access_token = body.access_token,
-              refresh_token = body.refresh_token,
-              user_auth = {access_token, refresh_token};
-          console.log(user_auth);
-          // Token.create({
-          //   access: access_token,
-          //   refresh: refresh_token
-          // });
-          // Token.find(function(err, tokens) {
-          //   if (err)
-          //     res.send(err)
-          //   console.log(tokens);
-          // });
+              refresh_token = body.refresh_token;
+          res.cookie('access_token',access_token);
+          res.redirect('/party/create');
         }
       });
-      res.redirect('/party/create');
+
     }
   });
 
