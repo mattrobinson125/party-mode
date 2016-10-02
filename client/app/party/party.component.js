@@ -22,7 +22,7 @@ export class PartyComponent {
   }
 
   goTo(index){
-    this.$window.location.href = '/party/' + this.parties[index]._id;
+    this.$window.location.href = '/party/id/' + this.parties[index]._id;
   }
 }
 

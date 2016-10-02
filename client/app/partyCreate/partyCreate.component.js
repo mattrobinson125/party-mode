@@ -8,10 +8,12 @@ import routes from './partyCreate.routes';
 
 export class PartyCreateComponent {
   /*@ngInject*/
-  constructor($http, $cookies) {
+  constructor($http, $cookies, $window) {
     this.$http = $http;
     this.$cookies = $cookies;
+    this.$window = $window;
     this.access_token = $cookies.get('access_token');
+    this.formData = {};
   }
 
   $onInit() {
@@ -32,7 +34,15 @@ export class PartyCreateComponent {
     } else if(form.zip.length != 5){
       console.log("Zip code incorrect!");
     } else{
-
+      this.$http.post('/api/parties', {
+        host: this.host,
+        name: form.name,
+        visibility: form.visibility,
+        zip: form.zip
+      }).then(response => {
+          console.log(response);
+          this.$window.location.href = '/party/id/' + response.data._id;
+        })
     }
   }
 }
@@ -41,7 +51,7 @@ export default angular.module('partyModeApp.partyCreate', [ngRoute, ngCookies])
   .config(routes)
   .component('partyCreate', {
     template: require('./partyCreate.html'),
-    controller: ['$http', '$cookies', PartyCreateComponent],
+    controller: ['$http', '$cookies', '$window', PartyCreateComponent],
     controllerAs: 'partyCreateCtrl'
   })
   .name;
