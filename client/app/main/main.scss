@@ -6,6 +6,10 @@
   width: 150px;
 }
 
+body {
+  background-color: #384048;
+}
+
 .lead{
   letter-spacing: 0.5px;
 }
@@ -22,12 +26,12 @@
 }
 
 .hero-unit {
-  position: relative;
+  // position: relative;
   padding: 30px 15px;
   color: #F5F5F5;
   text-align: center;
   // text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
-  background: #384048;
+  background-color: #384048;
 }
 
 .navbar-text {

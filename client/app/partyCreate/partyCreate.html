@@ -2,9 +2,15 @@
   <div class="row">
     <div class="col-md-3"></div>
     <div class="col-md-6 form">
+      <h1>Create your party</h1><br>
       <form ng-submit="partyCreateCtrl.processForm()">
-        <h1>Create your party</h1><br>
         <div class="form-group">
+          <div class="form-group row">
+            <label class="col-xs-3 col-form-label">Host</label>
+            <div class="col-xs-9">
+              <div>{{partyCreateCtrl.host}}</div>
+            </div>
+          </div>
           <div class="form-group row">
             <label class="col-xs-3 col-form-label">Party Name</label>
             <div class="col-xs-9">
@@ -13,12 +19,13 @@
           </div>
           <div class="form-group row">
             <label class="col-xs-3 col-form-label">Party Visibility</label>
-            <div class="col-xs-2">
+            <div class="col-xs-3">
               <input type="radio" ng-model="partyCreateCtrl.formData.visibility" value="public"> Public
             </div>
-            <div class="col-xs-2">
+            <div class="col-xs-3">
               <input type="radio" ng-model="partyCreateCtrl.formData.visibility" value="private"> Private
-            </div>
+            </div
+            <div class="col-xs-3"></div>
           </div>
           <div class="form-group row">
             <label class="col-xs-3 col-form-label">Zip Code</label>
@@ -27,17 +34,15 @@
             </div>
           </div>
           <div class="form-group row">
-            <div class="col-xs-8"></div>
-            <div class="col-xs-2">
-              <a href="/"><button class="btn btn-secondary pull-right">Cancel</button></a>
-            </div>
-            <div class="col-xs-2">
+            <div class="col-xs-3"></div>
+            <div class="col-xs-9">
               <button type="submit" class="btn btn-success pull-right">Create</button>
+              <a href="/"><button class="btn btn-secondary pull-right">Cancel</button></a>
             </div>
           </div>
         </div>
       </form>
+      <div class="col-md-3"></div>
     </div>
-    <div class="col-md-3"></div>
   </div>
 </div>
