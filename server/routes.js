@@ -43,7 +43,7 @@ export default function(app) {
     res.cookie(stateKey, state);
 
     // your application requests authorization
-    var scope = 'user-read-private user-read-email user-library-read user-top-read';
+    var scope = 'user-read-private user-read-email user-library-read user-top-read playlist-modify-public';
     res.redirect('https://accounts.spotify.com/authorize?' +
       querystring.stringify({
         response_type: 'code',

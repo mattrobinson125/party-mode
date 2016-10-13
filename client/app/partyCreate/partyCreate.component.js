@@ -23,6 +23,8 @@ export class PartyCreateComponent {
     };
     this.$http.get('https://api.spotify.com/v1/me', options)
       .then(response => {
+        console.log(response.data);
+        this.$cookies.put('user_id', response.data.id);
         this.host = response.data.display_name;
       });
   }
@@ -34,6 +36,21 @@ export class PartyCreateComponent {
     } else if(form.zip.length != 5){
       console.log("Zip code incorrect!");
     } else{
+      var user_id = this.$cookies.get('user_id');
+      var options = {
+        headers: { 'Authorization': 'Bearer ' + this.access_token },
+        name: form.name,
+        json: true
+      };
+      this.$http.post('https://api.spotify.com/v1/users/' + user_id + '/playlists', {
+        name: form.name
+      }, {
+        headers: { 'Authorization': 'Bearer ' + this.access_token },
+        json: true,
+      }).then(response => {
+        console.log(response);
+      });
+
       this.$http.post('/api/parties', {
         host: this.host,
         name: form.name,
