@@ -6,7 +6,8 @@ var PartySchema = new mongoose.Schema({
   name: String,
   host: String,
   visibility: String,
-  spotify_uri: String,
+  playlist_uri: String,
+  owner_uri: String,
   zip: Number,
 });
 

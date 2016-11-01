@@ -48,16 +48,18 @@ export class PartyCreateComponent {
         headers: { 'Authorization': 'Bearer ' + this.access_token },
         json: true,
       }).then(response => {
+        console.log(response);
           this.$http.post('/api/parties', {
             host: this.host,
             name: form.name,
             visibility: form.visibility,
             zip: form.zip,
-            spotify_uri: response.data.id
+            playlist_uri: response.data.id,
+            owner_uri: response.data.owner.id
           }).then(response => {
               console.log(response);
               this.$window.location.href = '/party/id/' + response.data._id;
-            })
+          });
       });
     }
   }

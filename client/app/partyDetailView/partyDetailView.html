@@ -1,4 +1,5 @@
 <div class="col-md-12">
   <div>Party Name: {{partyDetailViewCtrl.party.name}}</div>
   <div>Party Host: {{partyDetailViewCtrl.party.host}}</div>
+  <div ng-repeat="item in partyDetailViewCtrl.tracks">{{item.track.name}}</div>
 </div>
